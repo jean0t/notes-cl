@@ -11,16 +11,18 @@
     (cond 
       ((string= command "list")
        	(format t "~%Notes:~%")
-	(dolist (note (list-notes repo-path))
-	  (format t "[~A] ~A~%~A~%~%" (getf note :id) (getf note :title) (getf note :body))))
+	    (dolist (note (list-notes repo-path))
+	        (format t "[~A] ~A~%~A~%~%" (getf note :id) (getf note :title) (getf note :body))))
+
       ((string= command "add")
        	(let ((title (first rest))
 	      (body (second rest)))
-	  (add-note repo-path title body)
-	  (format t "Note added.~%")))
+	        (add-note repo-path title body)
+	        (format t "Note added.~%")))
+
       ((string= command "delete")
        	(let ((id (parse-integer (first rest))))
-	  (delete-note repo-path id)
-	  (format t "Note deleted.~%")))
+	        (delete-note repo-path id)
+	        (format t "Note deleted.~%")))
       (t
        (format t "Usage: list | add <title> <body> | delete <id>~%")))))
