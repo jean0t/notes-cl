@@ -10,7 +10,7 @@
 	(rest (rest args)))
     (cond 
       ((string= command "list")
-       	(format t "~%Notes:~%")
+       	(format t "~&Notes:~%")
 	    (dolist (note (list-notes repo-path))
 	        (format t "[~A] ~A~%~T~A~%~%" (getf note :id) (getf note :title) (getf note :body))))
 

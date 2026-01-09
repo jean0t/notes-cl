@@ -1,6 +1,6 @@
 (asdf:defsystem "notes-cl"
         :author "Jean0t"
-        :version "1.0.0"
+        :version "1.0.1"
         :license "MIT"
         :description "CLI Notes app for linux made in Common Lisp"
 		:serial t
