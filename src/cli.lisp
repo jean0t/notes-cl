@@ -12,7 +12,7 @@
       ((string= command "list")
        	(format t "~%Notes:~%")
 	    (dolist (note (list-notes repo-path))
-	        (format t "[~A] ~A~%~A~%~%" (getf note :id) (getf note :title) (getf note :body))))
+	        (format t "[~A] ~A~%~T~A~%~%" (getf note :id) (getf note :title) (getf note :body))))
 
       ((string= command "add")
        	(let ((title (first rest))

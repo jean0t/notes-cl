@@ -6,6 +6,8 @@
 (in-package :notes-cl.app)
 
 (defun main ()
-  (let ((repo-path "data/notes.json"))
-    (ensure-directories-exist (pathname "data/"))
-    (run-cli (uiop:command-line-arguments) repo-path)))
+  (let* ((home (user-homedir-pathname))
+	 (repo-dir (merge-pathnames "data/" home))
+	 (file-path (merge-pathnames "notes.json" repo-dir)))
+    (ensure-directories-exist repo-dir)
+    (run-cli (uiop:command-line-arguments) file-path)))
